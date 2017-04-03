@@ -26,7 +26,12 @@ public class ExchangeRepository {
   }
 
   public void add(Exchange exchange) {
-    data.add(exchange);
+
+    if(!data.add(exchange)) {
+      data.remove(exchange);
+      data.add(exchange);
+    }
+
   }
 
   public long size() {

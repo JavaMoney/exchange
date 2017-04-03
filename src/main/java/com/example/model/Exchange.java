@@ -46,4 +46,22 @@ public class Exchange {
   public void setRate(BigDecimal rate) {
     this.rate = rate;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Exchange exchange = (Exchange) o;
+
+    if (!date.equals(exchange.date)) return false;
+    return currency.equals(exchange.currency);
+  }
+
+  @Override
+  public int hashCode() {
+    int result = date.hashCode();
+    result = 31 * result + currency.hashCode();
+    return result;
+  }
 }

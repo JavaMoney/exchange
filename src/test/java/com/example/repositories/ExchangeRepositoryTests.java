@@ -72,4 +72,37 @@ public class ExchangeRepositoryTests {
 
   }
 
+  @Test
+  public void itShouldUpdateExchange() {
+
+    ExchangeRepository repository = new ExchangeRepository();
+
+    assertThat(repository.size()).isEqualTo(0L);
+
+    Exchange exchange = new Exchange();
+    exchange.setDate(LocalDate.now());
+    exchange.setCurrency("GBP");
+    exchange.setRate(new BigDecimal("0.75"));
+
+    repository.add(exchange);
+
+    exchange = repository.findByDateAndCurrency(LocalDate.now(), "GBP");
+
+    assertThat(exchange.getRate()).isEqualByComparingTo(new BigDecimal(0.75));
+
+    exchange = new Exchange();
+    exchange.setDate(LocalDate.now());
+    exchange.setCurrency("GBP");
+    exchange.setRate(new BigDecimal("1.00"));
+
+    repository.add(exchange);
+
+    assertThat(repository.size()).isEqualTo(1L);
+
+    exchange = repository.findByDateAndCurrency(LocalDate.now(), "GBP");
+
+    assertThat(exchange.getRate()).isEqualByComparingTo(new BigDecimal(1.00));
+
+  }
+
 }

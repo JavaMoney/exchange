@@ -22,7 +22,7 @@ public class ExchangeServiceTests {
 
   private ExchangeService service;
 
-  @BeforeClass
+  @Before
   public void before() {
 
     Exchange exchange = new Exchange();

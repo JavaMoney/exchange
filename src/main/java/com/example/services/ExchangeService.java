@@ -59,4 +59,13 @@ public class ExchangeService {
 
   }
 
+  public void refresh() {
+
+    List<Exchange> exchanges = client.getDailyRates();
+
+    exchanges.stream().forEach(repository::add);
+
+  }
+
+
 }

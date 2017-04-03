@@ -1,6 +1,7 @@
 package com.example.repositories;
 
 import com.example.model.Exchange;
+import com.example.model.ExchangeNotFoundException;
 import com.example.repository.ExchangeRepository;
 import org.junit.Test;
 
@@ -52,6 +53,22 @@ public class ExchangeRepositoryTests {
 
     assertThat(exchange).isNotNull();
     assertThat(exchange.getRate()).isEqualByComparingTo(new BigDecimal("0.75"));
+
+  }
+
+  @Test(expected = ExchangeNotFoundException.class)
+  public void itShouldThrowExceptionWhenExchangeNotFound() {
+
+    ExchangeRepository repository = new ExchangeRepository();
+
+    Exchange exchange = new Exchange();
+    exchange.setDate(LocalDate.now());
+    exchange.setCurrency("GBP");
+    exchange.setRate(new BigDecimal("0.75"));
+
+    repository.add(exchange);
+
+    repository.findByDateAndCurrency(LocalDate.now().minus(1, ChronoUnit.YEARS), "GBP");
 
   }
 

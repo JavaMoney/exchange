@@ -14,6 +14,15 @@ public class Exchange {
 
   private BigDecimal rate;
 
+  public Exchange() {
+  }
+
+  public Exchange(LocalDate date, String currency, BigDecimal rate) {
+    this.date = date;
+    this.currency = currency;
+    this.rate = rate;
+  }
+
   public LocalDate getDate() {
     return date;
   }

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -29,6 +30,28 @@ public class ExchangeRepositoryTests {
     repository.add(exchange);
 
     assertThat(repository.size()).isEqualTo(1L);
+
+  }
+
+  @Test
+  public void itShouldFindTheLastKnownExchage() {
+
+    //for weekends there is no exchange, so we get from friday
+    //for a date is possible not updated yet, updates occurs at 16:00 CET, so we get the rate from the day before
+
+    ExchangeRepository repository = new ExchangeRepository();
+
+    Exchange yesterday = new Exchange();
+    yesterday.setDate(LocalDate.now().minus(1, ChronoUnit.DAYS));
+    yesterday.setCurrency("GBP");
+    yesterday.setRate(new BigDecimal("0.75"));
+
+    repository.add(yesterday);
+
+    Exchange exchange = repository.findByDateAndCurrency(LocalDate.now(), "GBP");
+
+    assertThat(exchange).isNotNull();
+    assertThat(exchange.getRate()).isEqualByComparingTo(new BigDecimal("0.75"));
 
   }
 

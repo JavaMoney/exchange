@@ -8,7 +8,7 @@ You can give anybody this one .jar and they can run your entire Spring applicati
 with no fuss: no build tool required, no setup, no web server configuration, etc: 
 just **java -jar exchange-0.0.1-SNAPSHOT.jar**.
 
-#Example
+## Example
 
 curl "http://localhost:8080/conversor?from_amount=1.283295&from_currency=GBP&to_currency=EUR"
 

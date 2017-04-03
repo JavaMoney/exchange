@@ -25,7 +25,18 @@ public class ExchangeServiceTests {
 
     ConversionResult result = service.convert(LocalDate.now(), new BigDecimal("1.0"), "EUR", "GBP");
 
-    assertThat(result.getToAmount()).isEqualTo(new BigDecimal("0.75"));
+    assertThat(result.getToAmount()).isEqualByComparingTo(new BigDecimal("0.75"));
+
+  }
+
+  @Test
+  public void itShouldConvertGbpToEur() {
+
+    ExchangeService service = new ExchangeService();
+
+    ConversionResult result = service.convert(LocalDate.now(), new BigDecimal("0.75"), "GBP", "EUR");
+
+    assertThat(result.getToAmount()).isEqualByComparingTo(new BigDecimal("1.00"));
 
   }
 

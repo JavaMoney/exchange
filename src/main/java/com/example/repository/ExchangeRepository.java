@@ -2,6 +2,7 @@ package com.example.repository;
 
 import com.example.model.Exchange;
 import com.example.model.ExchangeNotFoundException;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.Comparator;
@@ -11,6 +12,7 @@ import java.util.Set;
 /**
  * Created by woorea on 03/04/2017.
  */
+@Repository
 public class ExchangeRepository {
 
   private Set<Exchange> data = new HashSet<>();

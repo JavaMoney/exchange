@@ -38,10 +38,10 @@ curl "http://localhost:8080/conversor?date=2017-04-01&from_amount=1.50515&from_c
 
 ```
 {
-  "date":"2017-04-03",
+  "date":"2017-04-01",
   "fromAmount":1.50515,
   "fromCurrency":"EUR",
-  "toAmount":1.283290890,
+  "toAmount":1.2877009795,
   "toCurrency":"GBP"
 }
 ```

@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "22f71d8e-2936-46cd-8395-dbe3ee4a5b4a",
+		"name": "Exchange Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EUR to GBP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/convert?from_amount=1.50515&from_currency=EUR&to_currency=GBP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convert"
+					],
+					"query": [
+						{
+							"key": "from_amount",
+							"value": "1.50515"
+						},
+						{
+							"key": "from_currency",
+							"value": "EUR"
+						},
+						{
+							"key": "to_currency",
+							"value": "GBP"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GBP to EUR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/convert?from_amount=1.283295&from_currency=GBP&to_currency=EUR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convert"
+					],
+					"query": [
+						{
+							"key": "from_amount",
+							"value": "1.283295"
+						},
+						{
+							"key": "from_currency",
+							"value": "GBP"
+						},
+						{
+							"key": "to_currency",
+							"value": "EUR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EUR to GBP on given Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/convert?date=2022-12-01&from_amount=1.50515&from_currency=EUR&to_currency=GBP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convert"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2022-12-01"
+						},
+						{
+							"key": "from_amount",
+							"value": "1.50515"
+						},
+						{
+							"key": "from_currency",
+							"value": "EUR"
+						},
+						{
+							"key": "to_currency",
+							"value": "GBP"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GBP to EUR on given Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/convert?date=2022-12-01&from_amount=1.50515&from_currency=GBP&to_currency=EUR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convert"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2022-12-01"
+						},
+						{
+							"key": "from_amount",
+							"value": "1.50515"
+						},
+						{
+							"key": "from_currency",
+							"value": "GBP"
+						},
+						{
+							"key": "to_currency",
+							"value": "EUR"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

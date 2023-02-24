@@ -1,4 +1,6 @@
-# Embedded Web Server Deployment
+# Exchange Rate API
+
+## Embedded Web Server Deployment
 
 To bundle the product you will need Maven. Executing **mvn clean install**, you’ll get a 
 fat jar. This jar is handy because it includes all the other dependencies and things 
@@ -8,9 +10,9 @@ You can give anybody this one .jar and they can run your entire Spring applicati
 with no fuss: no build tool required, no setup, no web server configuration, etc: 
 just **java -jar exchange-0.0.1-SNAPSHOT.jar**.
 
-## Example
+# Example
 
-curl "http://localhost:8080/conversor?from_amount=1.283295&from_currency=GBP&to_currency=EUR"
+curl "http://localhost:8080/convert?from_amount=1.283295&from_currency=GBP&to_currency=EUR"
 
 ```
 {
@@ -22,7 +24,7 @@ curl "http://localhost:8080/conversor?from_amount=1.283295&from_currency=GBP&to_
 }
 ```
 
-curl "http://localhost:8080/conversor?from_amount=1.50515&from_currency=EUR&to_currency=GBP"
+curl "http://localhost:8080/convert?from_amount=1.50515&from_currency=EUR&to_currency=GBP"
 
 ```
 {
@@ -34,7 +36,7 @@ curl "http://localhost:8080/conversor?from_amount=1.50515&from_currency=EUR&to_c
 }
 ```
 
-curl "http://localhost:8080/conversor?date=2017-04-01&from_amount=1.50515&from_currency=EUR&to_currency=GBP"
+curl "http://localhost:8080/convert?date=2017-04-01&from_amount=1.50515&from_currency=EUR&to_currency=GBP"
 
 ```
 {

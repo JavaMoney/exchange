@@ -57,7 +57,7 @@ public class ConversorResourceTests {
         .queryParam("from_currency", "EUR")
         .queryParam("to_currency", "GBP")
       .when()
-        .get("/conversor")
+        .get("/convert")
       .then()
         .log().all()
         .statusCode(200)

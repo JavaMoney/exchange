@@ -22,7 +22,7 @@ public class ConversorResource {
   @Autowired
   private ExchangeService exchangeService;
 
-  @GetMapping(path = "/conversor")
+  @GetMapping(path = "/convert")
   public ResponseEntity<ConversionResult> converter(
     @RequestParam(value="date") Optional<String> date,
     @RequestParam(value="from_currency") String fromCurrency,

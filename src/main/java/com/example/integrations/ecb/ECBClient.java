@@ -17,9 +17,12 @@ public class ECBClient {
 
   //these urls should be externalized, for simplicity I will maintain hardcoded
 
-  public final String dailyRatesUrl = "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml";
+  public final String dailyRatesUrl = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml";
 
-  public final String history90daysUrl = "http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml";
+  public final String history90daysUrl = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml";
+
+  public final String historyUrl = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml";
+
 
   private final RestTemplate restTemplate;
 
@@ -40,6 +43,12 @@ public class ECBClient {
   public List<Exchange> getDailyRates() {
 
     return getRatesFromUrl(dailyRatesUrl);
+
+  }
+
+  public List<Exchange> getAllHistoryRates() {
+
+    return getRatesFromUrl(historyUrl);
 
   }
 

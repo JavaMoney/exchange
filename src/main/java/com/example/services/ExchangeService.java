@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by woorea on 03/04/2017.
@@ -18,11 +19,16 @@ import java.util.List;
 @Service
 public class ExchangeService {
 
+  private static final Logger LOG = Logger.getLogger(ExchangeService.class.getName());
+
   @Autowired
   private ECBClient client;
 
   @Autowired
   private ExchangeRepository repository;
+
+//  @Autowired
+//  private ExchangeRepository allRepository;
 
   public ConversionResult convert(LocalDate date, BigDecimal fromAmount, String fromCurrency, String toCurrency) {
 
@@ -53,10 +59,13 @@ public class ExchangeService {
 
   public void init() {
 
-    List<Exchange> exchanges = client.getHistoryRatesForLast90days();
-
+    final List<Exchange> exchanges = client.getHistoryRatesForLast90days();
     exchanges.stream().forEach(repository::add);
 
+//    final List<Exchange> allExchanges = client.getAllHistoryRates();
+//    allExchanges.stream().forEach(allRepository::add);
+
+    LOG.info("Done initializing");
   }
 
   public void refresh() {

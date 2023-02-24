@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "385a2407-5ff0-485e-ba9a-1facba05870b",
+		"_postman_id": "e6441ecb-2ab7-4e49-87b5-1a3e7eb102d6",
 		"name": "Exchange Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/convert?from_amount=1.50515&from_currency=EUR&to_currency=GBP",
+					"raw": "http://localhost:8080/convert?from_amount={{amount}}&from_currency={{euro}}&to_currency={{pound}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -23,15 +23,15 @@
 					"query": [
 						{
 							"key": "from_amount",
-							"value": "1.50515"
+							"value": "{{amount}}"
 						},
 						{
 							"key": "from_currency",
-							"value": "EUR"
+							"value": "{{euro}}"
 						},
 						{
 							"key": "to_currency",
-							"value": "GBP"
+							"value": "{{pound}}"
 						}
 					]
 				}
@@ -44,7 +44,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/convert?from_amount=1.283295&from_currency=GBP&to_currency=EUR",
+					"raw": "http://localhost:8080/convert?from_amount={{amount}}&from_currency={{pound}}&to_currency={{euro}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -56,15 +56,15 @@
 					"query": [
 						{
 							"key": "from_amount",
-							"value": "1.283295"
+							"value": "{{amount}}"
 						},
 						{
 							"key": "from_currency",
-							"value": "GBP"
+							"value": "{{pound}}"
 						},
 						{
 							"key": "to_currency",
-							"value": "EUR"
+							"value": "{{euro}}"
 						}
 					]
 				}
@@ -77,7 +77,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/convert?date={{givenDate}}&from_amount={{amount}}&from_currency=EUR&to_currency=GBP",
+					"raw": "http://localhost:8080/convert?date={{givenDate}}&from_amount={{amount}}&from_currency={{euro}}&to_currency={{pound}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -97,11 +97,11 @@
 						},
 						{
 							"key": "from_currency",
-							"value": "EUR"
+							"value": "{{euro}}"
 						},
 						{
 							"key": "to_currency",
-							"value": "GBP"
+							"value": "{{pound}}"
 						}
 					]
 				}
@@ -114,7 +114,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/convert?date=2022-12-01&from_amount=1.50515&from_currency=GBP&to_currency=EUR",
+					"raw": "http://localhost:8080/convert?date={{givenDate}}&from_amount={{amount}}&from_currency={{pound}}&to_currency={{euro}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -126,24 +126,44 @@
 					"query": [
 						{
 							"key": "date",
-							"value": "2022-12-01"
+							"value": "{{givenDate}}"
 						},
 						{
 							"key": "from_amount",
-							"value": "1.50515"
+							"value": "{{amount}}"
 						},
 						{
 							"key": "from_currency",
-							"value": "GBP"
+							"value": "{{pound}}"
 						},
 						{
 							"key": "to_currency",
-							"value": "EUR"
+							"value": "{{euro}}"
 						}
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
@@ -154,6 +174,26 @@
 		{
 			"key": "givenDate",
 			"value": "2022-12-01"
+		},
+		{
+			"key": "euro",
+			"value": "EUR",
+			"type": "default"
+		},
+		{
+			"key": "pound",
+			"value": "GBP",
+			"type": "default"
+		},
+		{
+			"key": "dollar",
+			"value": "USD",
+			"type": "default"
+		},
+		{
+			"key": "swissfranc",
+			"value": "CHF",
+			"type": "default"
 		}
 	]
 }
